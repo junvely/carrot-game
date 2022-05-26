@@ -1,0 +1,129 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+}
+
+/* game-start */
+section.alert {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.747);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+}
+.alert-con {
+  width: 50%;
+  height: auto;
+  color: #fff;
+  font-size: 25px;
+  font-family: "Gamja Flower", cursive;
+  font-weight: 300;
+  padding: 2rem;
+  background-color: rgb(73, 36, 1);
+  border: 10px solid black;
+  border-radius: 20px;
+}
+.alert-con h1 {
+  font-size: 3rem;
+  padding: 20px 0;
+}
+.alert-con p {
+  line-height: 3rem;
+  padding: 20px 0;
+}
+.alert-con img {
+  width: 80px;
+  height: 80px;
+}
+
+/* game-end */
+section.game-end {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* game-con */
+section.game-con {
+  width: 100%;
+  min-height: 1000px;
+  background: url(../img/background.png) no-repeat 50% / cover;
+}
+
+/* timer-con */
+.timer-con {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 20px 0;
+}
+.timer-con span,
+button {
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 10px 0;
+  margin: 20px auto;
+  border: 5px solid rgb(54, 54, 54);
+  border-radius: 10px;
+}
+button {
+  width: 150px;
+  background-color: pink;
+  cursor: pointer;
+}
+button:hover {
+  transition: all 0.3s;
+  background-color: palevioletred;
+}
+.start-con button.startBtn,
+.replayBtn {
+  width: 180px;
+  font-size: 25px;
+  font-family: "Gamja Flower", cursive;
+}
+span.timer {
+  width: 200px;
+  background-color: #fff;
+}
+span.carrot-count {
+  width: 100px;
+  background-color: palevioletred;
+  border-radius: 50%;
+}
+
+/* carrot-con */
+.carrot-con {
+  width: 100%;
+  height: auto;
+  padding: 100px;
+}
+.carrot-con ul.items {
+  width: 100%;
+  min-height: 300px;
+  position: relative;
+}
+li.item {
+  width: 80px;
+  height: 80px;
+  display: block;
+  position: absolute;
+  /* transform: translate(200px, 200px); */
+}
+li.item.carrot {
+  background: url(../img/carrot.png) no-repeat 50% / cover;
+}
+li.item.bug {
+  background: url(../img/bug.png) no-repeat 50% / cover;
+}
