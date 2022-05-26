@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrot Game</title>
+    <link rel="stylesheet" href="css/carrot_game.css" />
+    <script
+      src="https://kit.fontawesome.com/fc491eb579.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/start_game.js" defer></script>
+    <script src="js/create_carrots.js" defer></script>
+    <script src="js/random_items.js" defer></script>
+    <script src="js/delete_items.js" defer></script>
+    <script src="js/play_game.js" defer></script>
+    <script src="js/end_game.js" defer></script>
+  </head>
+  <body>
+    <section class="alert game-start">
+      <div class="alert-con start-con">
+        <h1>Let's play the carrot game!</h1>
+        <p>
+          벌레를 피해 10초 안에 당근 10개를 손에 넣으세요!<br />
+          10개의 당근을 모두 찾으면 당신이 이깁니다!
+        </p>
+        <img src="img/carrot.png" alt="carrot" />
+        <button class="startBtn">Start now!</button>
+      </div>
+    </section>
+    <section class="game-con">
+      <div class="timer-con">
+        <button class="playBtn stop"><i class="fa-solid fa-play"></i></button>
+        <span class="timer">00:00</span>
+        <span class="carrot-count">0</span>
+      </div>
+      <div class="carrot-con">
+        <ul class="items">
+          <!-- <li class="item carrot"></li>
+          <li class="item bug"></li> -->
+        </ul>
+      </div>
+    </section>
+    <section class="alert game-end">
+      <div class="alert-con end-con">
+        <h1>Game over! You lose!</h1>
+        <p>Game over!!<br />다시 한번 도전해 보시겠어요??</p>
+        <img src="img/bug.png" alt="bug" />
+        <button class="replayBtn">Replay!</button>
+      </div>
+    </section>
+  </body>
+</html>
