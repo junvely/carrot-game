@@ -1,32 +1,20 @@
 "use strict";
 
-function itemsWidth() {
+function randomCoord() {
   let itemsWidth = items.clientWidth;
-  return itemsWidth;
-}
-
-function itemsHeight() {
   let itemsHeight = items.clientHeight;
-  return itemsHeight;
-}
-
-function randomX() {
-  let x = Math.floor(Math.random() * itemsWidth());
-  return x;
-}
-
-function randomY() {
-  let y = Math.floor(Math.random() * itemsHeight());
-  return y;
-}
-
-function itemRandomCoord() {
-  const item = document.querySelectorAll(".item");
+  const item = items.querySelectorAll(".item");
   item.forEach((item) => {
-    item.style.transform = `translate(${randomX()}px,${randomY()}px)`;
+    item.style.transform = `translate(${randomNumber(
+      itemsWidth
+    )}px,${randomNumber(itemsHeight)}px)`;
   });
 }
 
+function randomNumber(itemsRect) {
+  return Math.floor(Math.random() * itemsRect);
+}
+
 window.addEventListener("resize", () => {
-  itemRandomCoord();
+  randomCoord();
 });
