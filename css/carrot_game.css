@@ -7,6 +7,7 @@
 }
 body {
   position: relative;
+  background-color: #000;
 }
 
 /* game-start */
@@ -46,18 +47,11 @@ section.alert {
   height: 80px;
 }
 
-/* game-end */
-section.game-end {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 /* game-con */
 section.game-con {
   width: 100%;
-  min-height: 1000px;
+  height: 100vh;
+  min-height: 800px;
   background: url(../img/background.png) no-repeat 50% / cover;
 }
 
@@ -71,20 +65,21 @@ section.game-con {
 .timer-con span,
 button {
   display: block;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   padding: 10px 0;
-  margin: 20px auto;
+  margin: 10px auto;
   border: 5px solid rgb(54, 54, 54);
   border-radius: 10px;
+  user-select: none;
 }
 button {
-  width: 150px;
+  width: 100px;
   background-color: pink;
+  transition: all 0.3s;
   cursor: pointer;
 }
 button:hover {
-  transition: all 0.3s;
   background-color: palevioletred;
 }
 .start-con button.startBtn,
@@ -107,11 +102,11 @@ span.carrot-count {
 .carrot-con {
   width: 100%;
   height: auto;
-  padding: 100px;
 }
 .carrot-con ul.items {
   width: 100%;
   min-height: 300px;
+  padding-top: 100px;
   position: relative;
 }
 li.item {
@@ -119,11 +114,21 @@ li.item {
   height: 80px;
   display: block;
   position: absolute;
-  /* transform: translate(200px, 200px); */
+  transition: all 0.3s;
+  cursor: pointer;
 }
+
 li.item.carrot {
   background: url(../img/carrot.png) no-repeat 50% / cover;
 }
 li.item.bug {
   background: url(../img/bug.png) no-repeat 50% / cover;
+}
+
+/* game-end */
+section.game-end {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
 }

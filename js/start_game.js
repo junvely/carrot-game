@@ -7,7 +7,7 @@ const alertSound = new Audio("sound/alert.wav");
 
 let setTimer = setInterval(() => {
   if (playBtn.classList.contains(START) && i >= 0) {
-    go();
+    timerGo();
     console.log(i);
   } else if (i < 0) {
     alertSound.play();
@@ -17,7 +17,7 @@ let setTimer = setInterval(() => {
 }, 1000);
 
 let i = 10;
-function go() {
+function timerGo() {
   const timer = document.querySelector(".timer");
   timer.textContent = `00:${i}`;
   i--;

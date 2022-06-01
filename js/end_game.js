@@ -5,6 +5,7 @@ const gameWinSound = new Audio("sound/game_win.mp3");
 function endGame() {
   const gameEndSec = document.querySelector(".game-end");
   const replayBtn = document.querySelector(".replayBtn");
+  playSound.pause();
   onPlaySwitch();
   items.style.display = "none";
   gameEndSec.style.display = "flex";

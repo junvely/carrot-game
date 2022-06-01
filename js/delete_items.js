@@ -9,7 +9,9 @@ items.addEventListener("click", (e) => {
   const type = dataset.type;
   const idTarget = document.querySelector(`.item[data-id="${id}"`);
 
-  if (id && type === "carrot") {
+  if (playBtn.classList.contains(STOP)) {
+    return;
+  } else if (id && type === "carrot") {
     carrotSound.play();
     idTarget.remove();
     countCarrot();
