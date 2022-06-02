@@ -1,30 +1,28 @@
 "use strict";
+const gameStartSec = document.querySelector(".game-start");
 const startBtn = document.querySelector(".startBtn");
-const playBtn = document.querySelector(".playBtn");
-const icon = playBtn.querySelector("i");
+const timer = document.querySelector(".timer");
 
-const alertSound = new Audio("sound/alert.wav");
+let time = 10;
 
 let setTimer = setInterval(() => {
-  if (playBtn.classList.contains(START) && i >= 0) {
+  if (playBtn.classList.contains(START) && time >= 0) {
     timerGo();
-    console.log(i);
-  } else if (i < 0) {
-    alertSound.play();
+  } else if (time < 0) {
+    playSound(alertSound);
     clearInterval(setTimer);
     endGame();
   }
 }, 1000);
 
-let i = 10;
 function timerGo() {
-  const timer = document.querySelector(".timer");
-  timer.textContent = `00:${i}`;
-  i--;
+  const minute = String(Math.floor(time / 60)).padStart(2, "0");
+  const second = String(time % 60).padStart(2, "0");
+  timer.textContent = `${minute}:${second}`;
+  time--;
 }
 
 function onGameStart() {
-  const gameStartSec = document.querySelector(".game-start");
   gameStartSec.style.display = "none";
   onPlaySwitch();
   innerItems();
