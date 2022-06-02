@@ -1,9 +1,9 @@
 "use strict";
+const playBtn = document.querySelector(".playBtn");
+const icon = playBtn.querySelector("i");
 
 const STOP = "stop";
 const START = "start";
-
-const playSound = new Audio("sound/bg.mp3");
 
 function onPlaySwitch() {
   if (playBtn.classList.contains(START)) {
@@ -14,13 +14,13 @@ function onPlaySwitch() {
 }
 
 function playGame() {
-  playSound.play();
-  playBtn.className = "playBtn start"; // className? setAttribute?
+  playSound(bgSound);
+  playBtn.className = "playBtn start";
   icon.className = "fa-solid fa-pause";
 }
 
 function stopGame() {
-  playSound.pause();
+  pauseSound(bgSound);
   playBtn.className = "playBtn stop";
   icon.className = "fa-solid fa-play";
 }
