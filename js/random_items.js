@@ -1,8 +1,8 @@
 "use strict";
 
 function randomCoord() {
-  let itemsWidth = items.clientWidth;
-  let itemsHeight = items.clientHeight;
+  let itemsWidth = items.clientWidth - 80;
+  let itemsHeight = items.clientHeight - 80;
   const item = items.querySelectorAll(".item");
   item.forEach((item) => {
     item.style.transform = `translate(${randomNumber(
