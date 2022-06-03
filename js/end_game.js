@@ -1,11 +1,9 @@
 "use strict";
 
-const gameWinSound = new Audio("sound/game_win.mp3");
-
 function endGame() {
   const gameEndSec = document.querySelector(".game-end");
   const replayBtn = document.querySelector(".replayBtn");
-  playSound.pause();
+  pauseSound(bgSound);
   onPlaySwitch();
   items.style.display = "none";
   gameEndSec.style.display = "flex";
@@ -15,7 +13,7 @@ function endGame() {
 }
 
 function gameWin() {
-  gameWinSound.play();
+  playSound(winSound);
   const endTitle = document.querySelector(".game-end h1");
   const endText = document.querySelector(".game-end p");
   const endImg = document.querySelector(".game-end img");

@@ -7,11 +7,12 @@ const count = 10;
 let id = 0;
 
 function arrPushItems() {
+  carrots.length = 0;
+  bugs.length = 0;
+
   for (let j = 0; j < count; j++) {
-    carrots.push(
-      `<li class="item carrot" data-id="${id}" data-type="carrot"></li>`
-    );
-    bugs.push(`<li class="item bug" data-id="${id}" data-type="bug"></li>`);
+    carrots.push(`<li class="item carrot" data-id="${id}"></li>`);
+    bugs.push(`<li class="item bug" data-id="${id}"></li>`);
     id++;
   }
 }

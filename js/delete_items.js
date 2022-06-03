@@ -1,19 +1,21 @@
 "use strict";
 
-items.addEventListener("click", (e) => {
-  const dataset = e.target.dataset;
+function onItemsRemove(e) {
+  const target = e.target;
+  const dataset = target.dataset;
   const id = dataset.id;
-  const type = dataset.type;
   const idTarget = document.querySelector(`.item[data-id="${id}"`);
 
-  if (playBtn.classList.contains(STOP)) {
+  if (!gameOn) {
     return;
-  } else if (id && type === "carrot") {
+  } else if (target.matches(".carrot")) {
     playSound(carrotSound);
     idTarget.remove();
     countCarrot();
-  } else if (id && type === "bug") {
+  } else if (target.matches(".bug")) {
     playSound(bugSound);
     endGame();
   }
-});
+}
+
+items.addEventListener("click", onItemsRemove);
