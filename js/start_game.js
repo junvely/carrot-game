@@ -4,9 +4,10 @@ const startBtn = document.querySelector(".startBtn");
 const timer = document.querySelector(".timer");
 
 let time = 10;
+let gameOn = false;
 
 let setTimer = setInterval(() => {
-  if (playBtn.classList.contains(START) && time >= 0) {
+  if (gameOn && time >= 0) {
     timerGo();
   } else if (time < 0) {
     playSound(alertSound);
