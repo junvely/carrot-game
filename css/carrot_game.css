@@ -98,12 +98,12 @@ span.carrot-count {
   border-radius: 50%;
 }
 
-/* carrot-con */
-.carrot-con {
+/* field-con */
+.field-con {
   width: 100%;
   height: auto;
 }
-.carrot-con ul.items {
+.field-con ul.items {
   width: 100%;
   min-height: 300px;
   padding-top: 100px;

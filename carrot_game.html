@@ -5,18 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrot Game</title>
+    <link rel="icon" href="img/carrot.png" />
     <link rel="stylesheet" href="css/carrot_game.css" />
     <script
       src="https://kit.fontawesome.com/fc491eb579.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/sound.js" defer></script>
-    <script src="js/start_game.js" defer></script>
-    <script src="js/create_carrots.js" defer></script>
-    <script src="js/random_items.js" defer></script>
-    <script src="js/delete_items.js" defer></script>
-    <script src="js/play_game.js" defer></script>
-    <script src="js/end_game.js" defer></script>
+    <script type="module" src="src/main.js" defer></script>
   </head>
   <body>
     <section class="alert game-start">
@@ -36,11 +31,8 @@
         <span class="timer">00:00</span>
         <span class="carrot-count">0</span>
       </div>
-      <div class="carrot-con">
-        <ul class="items">
-          <!-- <li class="item carrot"></li>
-          <li class="item bug"></li> -->
-        </ul>
+      <div class="field-con">
+        <ul class="items"></ul>
       </div>
     </section>
     <section class="alert game-end">
