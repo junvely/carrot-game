@@ -52,13 +52,13 @@ export class Game {
     this.field.setCountCarrot(this.countCarrot);
   }
 
-  onGameSwitch = () => {
+  onGameSwitch() {
     if (this.gameOn) {
       this.stop();
     } else {
       this.play();
     }
-  };
+  }
 
   setTimer = setInterval(() => {
     if (this.gameOn && this.time >= 0) {
@@ -115,7 +115,7 @@ export class Game {
     });
   };
 
-  win = () => {
+  win() {
     sound.playWinSound();
     const endTitle = document.querySelector(".game-end h1");
     const endText = document.querySelector(".game-end p");
@@ -125,5 +125,5 @@ export class Game {
     endText.textContent =
       "You Win! 당근 10개를 모두 찾았어요! 당신이 이겼습니다!!";
     endImg.setAttribute("src", "img/win.png");
-  };
+  }
 }

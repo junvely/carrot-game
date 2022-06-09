@@ -65,7 +65,9 @@ Game play 화면
 
 - 객체지향적으로 코딩하는 것에 대한 연습이 필요하다
 
-- this.bounding을 제대로 하지 않고 넘어가면 this를(객체를) 참조할 수 없어(undefined) 연쇄적으로 예상하지 못한 다른 곳에서 연속적으로 error가 발생할 수 있다.
+- 클래스의 함수를 다른 함수 등의 인자 등으로 전달할 때 Class정보는 전달되지 않는다.(함수를 Class와 바운딩 해줘야 한다. > this bounding 해야 한다.)
+
+- this bounding을 제대로 하지 않고 넘어가면 this를(객체를) 참조할 수 없어(undefined) 연쇄적으로 예상하지 못한 다른 곳에서 연속적으로 error가 발생할 수 있다.
 
 - document.style.display='none' > 가독성에 좋지 않다. 되도록 classList.add 등을 이용해 클래스로 스타일을 변경하도록 하자.
 
