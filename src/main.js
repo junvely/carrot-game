@@ -2,7 +2,7 @@
 import { GameBuilder } from "./game.js";
 
 const game = new GameBuilder()
-  .time(3) //
-  .count(3) //
+  .time(10) //
+  .count(10) //
   .gameOn(false)
   .builder();
