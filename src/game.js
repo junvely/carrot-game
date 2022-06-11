@@ -2,6 +2,8 @@
 import * as sound from "./sound.js";
 import { Field } from "./field.js";
 
+const HIDDEN = "hidden";
+
 export class GameBuilder {
   time(sec) {
     this.time = sec;
@@ -30,14 +32,14 @@ export class Game {
     this.count = count;
     this.gameOn = gameOn;
 
-    this.gameStartSec = document.querySelector(".game-start");
+    this.gameAlert = document.querySelector(".alert");
     this.startBtn = document.querySelector(".startBtn");
     this.playBtn = document.querySelector(".playBtn");
     this.items = document.querySelector(".items");
     this.icon = this.playBtn.querySelector("i");
 
     this.startBtn.addEventListener("click", () => {
-      this.gameStartSec.style.display = "none";
+      this.gameAlert.classList.add(HIDDEN);
       this.onGameSwitch();
       this.field.innerItems();
       this.countCarrot();
@@ -83,8 +85,7 @@ export class Game {
     count.textContent = carrotCount;
 
     if (carrotCount === 0) {
-      this.end();
-      this.win();
+      this.end("win");
     }
   };
 
@@ -104,26 +105,36 @@ export class Game {
     this.field.gameOn = false;
   }
 
-  end = () => {
-    const gameEndSec = document.querySelector(".game-end");
-    const replayBtn = document.querySelector(".replayBtn");
+  end = (reason) => {
     this.onGameSwitch();
-    this.items.style.display = "none";
-    gameEndSec.style.display = "flex";
-    replayBtn.addEventListener("click", () => {
+    this.items.classList.add(HIDDEN);
+    this.gameAlert.classList.remove(HIDDEN);
+    this.startBtn.textContent = "Replay";
+    if (reason === "win") {
+      this.alert(
+        "You Win!!!", //
+        "You Win! 당근 10개를 모두 찾았어요! 당신이 이겼습니다!!", //
+        "img/win.png"
+      );
+    } else {
+      this.alert(
+        "Game over! You lose!", //
+        "다시 한번 도전해 보시겠어요??", //
+        "img/bug.png"
+      );
+    }
+    this.startBtn.addEventListener("click", () => {
       window.location.reload();
     });
   };
 
-  win() {
+  alert(title, text, img) {
     sound.playWinSound();
-    const endTitle = document.querySelector(".game-end h1");
-    const endText = document.querySelector(".game-end p");
-    const endImg = document.querySelector(".game-end img");
-
-    endTitle.textContent = "You Win!!!";
-    endText.textContent =
-      "You Win! 당근 10개를 모두 찾았어요! 당신이 이겼습니다!!";
-    endImg.setAttribute("src", "img/win.png");
+    const alertTitle = document.querySelector(".alert h1");
+    const alertText = document.querySelector(".alert p");
+    const alertImg = document.querySelector(".alert img");
+    alertTitle.textContent = title;
+    alertText.textContent = text;
+    alertImg.setAttribute("src", img);
   }
 }

@@ -3,14 +3,15 @@
 당근 게임(혼자완성.ver)
 10초 안에 벌레를 피해 당근을 모두 클릭해서 찾으면 이기는 게임.
 
-<img src="img/game_start_img.jpg" alt="game_start">
 Game start 화면
-<img src="img/game_play_img.jpg" alt="game_play">
+<img src="img/game_start_img.jpg" alt="game_start">
+
 Game play 화면
+<img src="img/game_play_img.jpg" alt="game_play">
 
 # 🎡Diagram
 
-게임 개발을 위한 전반적인 로직을 다이어그램으로 만들어 보았다.
+게임 개발을 위한 전반적인 로직을 다이어그램으로 나타내었다.
 
 <img src="img/carrot.drawio.png" alt="game_start">
 
@@ -67,7 +68,7 @@ Game play 화면
 
 - 클래스의 함수를 다른 함수 등의 인자 등으로 전달할 때 Class정보는 전달되지 않는다.(함수를 Class와 바운딩 해줘야 한다. > this bounding 해야 한다.)
 
-- this bounding을 제대로 하지 않고 넘어가면 this를(객체를) 참조할 수 없어(undefined) 연쇄적으로 예상하지 못한 다른 곳에서 연속적으로 error가 발생할 수 있다.
+- this bounding을 제대로 하지 않고 넘어가면 this를(객체를) 참조할 수 없어(undefined) 연쇄적으로 예상하지 못한 다른 곳에서 error가 발생할 수 있다.
 
 - document.style.display='none' > 가독성에 좋지 않다. 되도록 classList.add 등을 이용해 클래스로 스타일을 변경하도록 하자.
 

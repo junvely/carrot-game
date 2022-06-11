@@ -10,14 +10,12 @@ body {
   background-color: #000;
 }
 
-/* game-start */
+/* game-alert*/
 section.alert {
   width: 100%;
   height: 100vh;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.747);
-  display: flex;
-  justify-content: center;
   align-items: center;
   position: absolute;
   z-index: 1;
@@ -29,6 +27,7 @@ section.alert {
   font-size: 25px;
   font-family: "Gamja Flower", cursive;
   font-weight: 300;
+  margin: 0 auto;
   padding: 2rem;
   background-color: rgb(73, 36, 1);
   border: 10px solid black;
@@ -82,7 +81,7 @@ button {
 button:hover {
   background-color: palevioletred;
 }
-.start-con button.startBtn,
+.alert button.startBtn,
 .replayBtn {
   width: 180px;
   font-size: 25px;
@@ -125,10 +124,6 @@ li.item.bug {
   background: url(../img/bug.png) no-repeat 50% / cover;
 }
 
-/* game-end */
-section.game-end {
+.hidden {
   display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
 }
