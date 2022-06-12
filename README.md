@@ -73,3 +73,5 @@ Game play 화면
 - document.style.display='none' > 가독성에 좋지 않다. 되도록 classList.add 등을 이용해 클래스로 스타일을 변경하도록 하자.
 
 - 팝업 등은 하나의 함수에 인자를 전달하여 재사용할 수 있도록 하자.
+
+- 게임 Replay를 window.location.reload() 즉, 페이지를 새로고침 하는 것은 UI적으로 좋지 않다(함수를 재사용).

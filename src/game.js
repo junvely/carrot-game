@@ -38,8 +38,12 @@ export class Game {
     this.items = document.querySelector(".items");
     this.icon = this.playBtn.querySelector("i");
 
+    this.setTimer;
+
     this.startBtn.addEventListener("click", () => {
       this.gameAlert.classList.add(HIDDEN);
+      this.items.classList.remove(HIDDEN);
+      this.timer();
       this.onGameSwitch();
       this.field.innerItems();
       this.countCarrot();
@@ -62,14 +66,17 @@ export class Game {
     }
   }
 
-  setTimer = setInterval(() => {
-    if (this.gameOn && this.time >= 0) {
-      this.timerGo();
-    } else if (this.time < 0) {
-      clearInterval(this.setTimer);
-      this.end();
-    }
-  }, 1000);
+  timer() {
+    this.time = 10;
+    this.setTimer = setInterval(() => {
+      if (this.gameOn && this.time >= 0) {
+        this.timerGo();
+      } else if (this.time < 0) {
+        clearInterval(this.setTimer);
+        this.end();
+      }
+    }, 1000);
+  }
 
   timerGo() {
     const timer = document.querySelector(".timer");
@@ -123,16 +130,14 @@ export class Game {
         "img/bug.png"
       );
     }
-    this.startBtn.addEventListener("click", () => {
-      window.location.reload();
-    });
+    clearInterval(this.setTimer);
   };
 
   alert(title, text, img) {
-    sound.playWinSound();
     const alertTitle = document.querySelector(".alert h1");
     const alertText = document.querySelector(".alert p");
     const alertImg = document.querySelector(".alert img");
+    sound.playWinSound();
     alertTitle.textContent = title;
     alertText.textContent = text;
     alertImg.setAttribute("src", img);
