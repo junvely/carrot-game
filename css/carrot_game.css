@@ -18,17 +18,17 @@ section.alert {
   background-color: rgba(0, 0, 0, 0.747);
   align-items: center;
   position: absolute;
-  z-index: 1;
 }
 .alert-con {
   width: 50%;
+  max-width: 600px;
   height: auto;
   color: #fff;
   font-size: 25px;
   font-family: "Gamja Flower", cursive;
   font-weight: 300;
-  margin: 0 auto;
   padding: 2rem;
+  margin: 13% auto;
   background-color: rgb(73, 36, 1);
   border: 10px solid black;
   border-radius: 20px;
@@ -113,7 +113,7 @@ li.item {
   height: 80px;
   display: block;
   position: absolute;
-  transition: all 0.3s;
+  transition: all 0.1s;
   cursor: pointer;
 }
 

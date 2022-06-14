@@ -1,14 +1,14 @@
 "use strict";
 import * as sound from "./sound.js";
 
+const CARROT_SIZE = 80;
+
 export class Field {
   constructor(items, count, gameOn) {
     this.items = items;
     this.gameOn = gameOn;
     this.count = count;
 
-    this.carrots = [];
-    this.bugs = [];
     this.id = 0;
 
     items.addEventListener("click", this.onItemsClick);
@@ -26,19 +26,14 @@ export class Field {
     this.countCarrot = countCarrot;
   }
 
-  arrPushItems() {
-    this.carrots.length = 0;
-    this.bugs.length = 0;
+  _addItems(itemType) {
     for (let j = 0; j < this.count; j++) {
-      this.carrots.push(`<li class="item carrot" data-id="${this.id}"></li>`);
-      this.bugs.push(`<li class="item bug" data-id="${this.id}"></li>`);
+      const item = document.createElement("li");
+      item.setAttribute("class", itemType);
+      item.setAttribute("data-id", this.id);
+      this.items.appendChild(item);
       this.id++;
     }
-  }
-
-  innerItems() {
-    this.arrPushItems();
-    this.items.innerHTML = `${this.carrots.join("")}${this.bugs.join("")}`;
     this.randomCoord();
   }
 
@@ -61,8 +56,8 @@ export class Field {
   };
 
   randomCoord() {
-    let itemsWidth = this.items.clientWidth - 80;
-    let itemsHeight = this.items.clientHeight - 80;
+    let itemsWidth = this.items.clientWidth - CARROT_SIZE;
+    let itemsHeight = this.items.clientHeight - CARROT_SIZE;
     const item = this.items.querySelectorAll(".item");
     item.forEach((item) => {
       item.style.transform = `translate(${this.randomNumber(

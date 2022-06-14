@@ -3,6 +3,7 @@ import * as sound from "./sound.js";
 import { Field } from "./field.js";
 
 const HIDDEN = "hidden";
+const TIME = 10;
 
 export class GameBuilder {
   time(sec) {
@@ -41,11 +42,13 @@ export class Game {
     this.setTimer;
 
     this.startBtn.addEventListener("click", () => {
-      this.gameAlert.classList.add(HIDDEN);
-      this.items.classList.remove(HIDDEN);
+      this.items.innerHTML = "";
       this.timer();
+      this.hideAlert();
+      this.showField();
       this.onGameSwitch();
-      this.field.innerItems();
+      this.field._addItems("item carrot");
+      this.field._addItems("item bug");
       this.countCarrot();
     });
 
@@ -67,10 +70,11 @@ export class Game {
   }
 
   timer() {
-    this.time = 10;
+    this.time = TIME;
     this.setTimer = setInterval(() => {
       if (this.gameOn && this.time >= 0) {
-        this.timerGo();
+        this.timerText();
+        this.time--;
       } else if (this.time < 0) {
         clearInterval(this.setTimer);
         this.end();
@@ -78,12 +82,11 @@ export class Game {
     }, 1000);
   }
 
-  timerGo() {
+  timerText() {
     const timer = document.querySelector(".timer");
     const minute = String(Math.floor(this.time / 60)).padStart(2, "0");
     const second = String(this.time % 60).padStart(2, "0");
     timer.textContent = `${minute}:${second}`;
-    this.time--;
   }
 
   countCarrot = () => {
@@ -114,16 +117,18 @@ export class Game {
 
   end = (reason) => {
     this.onGameSwitch();
-    this.items.classList.add(HIDDEN);
-    this.gameAlert.classList.remove(HIDDEN);
+    this.hideField();
+    this.showAlert();
     this.startBtn.textContent = "Replay";
     if (reason === "win") {
+      sound.playWinSound();
       this.alert(
         "You Win!!!", //
         "You Win! 당근 10개를 모두 찾았어요! 당신이 이겼습니다!!", //
         "img/win.png"
       );
     } else {
+      sound.playBugSound;
       this.alert(
         "Game over! You lose!", //
         "다시 한번 도전해 보시겠어요??", //
@@ -137,9 +142,21 @@ export class Game {
     const alertTitle = document.querySelector(".alert h1");
     const alertText = document.querySelector(".alert p");
     const alertImg = document.querySelector(".alert img");
-    sound.playWinSound();
     alertTitle.textContent = title;
     alertText.textContent = text;
     alertImg.setAttribute("src", img);
+  }
+
+  showField() {
+    this.items.classList.remove(HIDDEN);
+  }
+  hideField() {
+    this.items.classList.add(HIDDEN);
+  }
+  showAlert() {
+    this.gameAlert.classList.remove(HIDDEN);
+  }
+  hideAlert() {
+    this.gameAlert.classList.add(HIDDEN);
   }
 }

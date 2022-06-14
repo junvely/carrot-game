@@ -13,7 +13,7 @@ Game play 화면
 
 게임 개발을 위한 전반적인 로직을 다이어그램으로 나타내었다.
 
-<img src="img/carrot.drawio.png" alt="game_start">
+<img src="img/diagram.png" alt="game_start">
 
 # ⚙️Refactoring
 
